@@ -1,7 +1,7 @@
 #ifndef FILELOADER_H
 #define FILELOADER_H
 
-#include "valve/hltypes.h"
+#include <valve/hltypes.h>
 #include <map>
 #include <string>
 
