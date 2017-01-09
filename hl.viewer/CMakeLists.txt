@@ -4,6 +4,10 @@ project(hl.viewer)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
+install_dep("https://bitbucket.org/wincppdeps/sdl2.git")
+install_dep("https://bitbucket.org/wincppdeps/glm.git")
+install_dep("https://bitbucket.org/wincppdeps/glextloader.git")
+
 find_package(OpenGL REQUIRED)
 
 find_package(SDL2 REQUIRED)
