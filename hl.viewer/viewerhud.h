@@ -1,7 +1,7 @@
 #ifndef VIEWERHUD_H
 #define VIEWERHUD_H
 
-#include "common/font.h"
+#include "../common/font.h"
 #include <valve/hltypes.h>
 #include <valve/hl1bspinstance.h>
 #include <valve/hl1mdlinstance.h>

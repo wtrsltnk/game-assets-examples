@@ -2,10 +2,12 @@
 #define HL1BSPVIEWER_H
 
 #include "viewerhud.h"
-#include "common/application.h"
-#include "common/camera.h"
+#include "../common/sdl-program.h"
+#include "../common/camera.h"
 #include <valve/hltypes.h>
 #include <glm/glm.hpp>
+#define SDL_MAIN_HANDLED
+#include <SDL.h>
 
 class AssetViewer : public Application
 {
@@ -24,7 +26,8 @@ public:
 
 public:
     virtual const char* GetWindowTitle() { return "asset-viewer"; }
-    virtual void GetContextAttributes(int& major, int& minor, bool& core) { major = 3; minor = 0; core = false; }
+    virtual void GetContextAttributes(int& major, int& minor, bool& core) { major = 3; minor = 1; core = true; }
+    virtual int GetWindowFlags() { return SDL_WINDOW_RESIZABLE; }
 
     virtual bool InitializeApplication(System* sys);
     virtual bool InitializeGraphics();
@@ -36,7 +39,6 @@ public:
     virtual void MouseButtonUp(int button, int x, int y);
     virtual void MouseWheel(int x, int y);
     virtual void KeyAction(int key, int action);
-    virtual void Close() { }
     virtual void Destroy();
 
 };

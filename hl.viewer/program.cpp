@@ -1,7 +1,7 @@
 #include "program.h"
 #include "filesystem.h"
-#include "common/settings.h"
-#include "common/log.h"
+#include "../common/settings.h"
+#include "../common/log.h"
 #include <valve/hl1bspasset.h>
 #include <valve/hl1bspinstance.h>
 #include <valve/hl2bspasset.h>
@@ -12,7 +12,6 @@
 #include <valve/hl1mapinstance.h>
 #include <valve/hl1sprasset.h>
 #include <valve/hl1sprinstance.h>
-#include <SDL.h>
 #include <iostream>
 #include <glm/gtx/rotate_vector.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -200,4 +199,9 @@ void AssetViewer::Destroy()
     if (this->_asset != nullptr) delete this->_asset;
 
     Settings::Instance()->SaveToDisk("assetviewer.settings");
+}
+
+int main(int argc, char* argv[])
+{
+    return AssetViewer().Run(argc, argv);
 }

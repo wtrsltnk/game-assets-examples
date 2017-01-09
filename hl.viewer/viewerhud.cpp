@@ -1,5 +1,5 @@
 #include "viewerhud.h"
-#include "common/settings.h"
+#include "../common/settings.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <sstream>
 #include <SDL.h>

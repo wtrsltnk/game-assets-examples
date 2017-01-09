@@ -12,14 +12,12 @@ include_directories(${SDL2_INCLUDE_DIR})
 find_package(GLM REQUIRED)
 include_directories(${GLM_INCLUDE_DIR})
 
-include_directories(${CMAKE_SOURCE_DIR}/common)
-
 set(SRC_APP
-    common/camera.cpp
-    common/font.cpp
-    common/main_sdl.cpp
-    common/settings.cpp
-    common/log.cpp
+    ../common/camera.cpp
+    ../common/font.cpp
+    ../common/settings.cpp
+    ../common/log.cpp
+    ../common/sdl-program.cpp
     filesystem.cpp
     program.cpp
 	viewerhud.cpp

@@ -26,24 +26,13 @@ private:
 class Application
 {
 public:
-    class Window
-    {
-    protected:
-        Window() { }
-    public:
-        virtual ~Window() { }
-
-        virtual void MakeCurrent() = 0;
-        virtual void Swap() = 0;
-    };
-
-public:
     virtual ~Application() { }
+
+    int Run(int argc, char* argv[]);
 
     virtual const char* GetWindowTitle() { return "OpenGL 3"; }
     virtual void GetContextAttributes(int& major, int& minor, bool& core) = 0;
     virtual int GetWindowFlags() { return 0; }
-    virtual bool IsCommandLineApplication() { return false; }
 
     virtual bool InitializeApplication(System* sys) = 0;
     virtual bool InitializeGraphics() = 0;
@@ -55,12 +44,7 @@ public:
     virtual void MouseButtonUp(int button, int x, int y) = 0;
     virtual void MouseWheel(int x, int y) = 0;
     virtual void KeyAction(int key, int action) = 0;
-    virtual void Close() = 0;
     virtual void Destroy() = 0;
-
-    Window* MainWindow();
-    Window* AddWindow(const char* title, int width, int height);
-    void CloseWindow(Window* window);
 
 };
 
