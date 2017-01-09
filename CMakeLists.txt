@@ -17,4 +17,4 @@ endif()
 include_directories(game-assets/include)
 
 add_subdirectory(game-assets)
-add_subdirectory(viewer)
+add_subdirectory(hl.viewer)

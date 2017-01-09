@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-project(viewer)
+project(hl.viewer)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
@@ -25,9 +25,9 @@ set(SRC_APP
 	viewerhud.cpp
 )
 
-add_executable(viewer ${SRC_APP})
+add_executable(hl.viewer ${SRC_APP})
 
-target_link_libraries(viewer
+target_link_libraries(hl.viewer
     game-assets
     ${SDL2_LIBRARY} Ole32 Oleaut32 Imm32 Winmm Version
     ${OPENGL_LIBRARIES}
