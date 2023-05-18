@@ -25,7 +25,7 @@ void Hl1MdlHud::Render(const glm::mat4 &proj, const glm::mat4 &view)
         ss << "[ INFO ]" << std::endl <<
               "Sequence count : " << this->_instance->Asset()->SequenceCount() << std::endl <<
               "Bodypart count : " << this->_instance->Asset()->BodypartCount() << std::endl;
-        this->_mainHud.Fonts.Info.DrawTextA(proj, view, this->_mainHud.Size().x - 300.0f, 20.0f, ss.str());
+        this->_mainHud.Fonts.Info.DrawText(proj, view, this->_mainHud.Size().x - 300.0f, 20.0f, ss.str());
     }
 }
 
@@ -41,7 +41,7 @@ void Hl1SprHud::Render(const glm::mat4 &proj, const glm::mat4 &view)
         std::stringstream ss;
         ss << "[ INFO ]" << std::endl <<
               "  Frame count : " << this->_instance->Asset()->FrameCount();
-        this->_mainHud.Fonts.Info.DrawTextA(proj, view, this->_mainHud.Size().x - 300.0f, 20.0f, ss.str());
+        this->_mainHud.Fonts.Info.DrawText(proj, view, this->_mainHud.Size().x - 300.0f, 20.0f, ss.str());
     }
 }
 
@@ -122,10 +122,10 @@ void ViewerHud::Render()
     glDisable(GL_ALPHA_TEST);
     if (this->_hud != nullptr)
     {
-        this->Fonts.Regular.DrawTextA(this->_proj, glm::mat4(1.0f), 5.0f, this->_size.y - 5.0f, (std::string("Loaded file : ") + this->_filename));
+        this->Fonts.Regular.DrawText(this->_proj, glm::mat4(1.0f), 5.0f, this->_size.y - 5.0f, (std::string("Loaded file : ") + this->_filename));
         std::stringstream speed;
         speed << "Camera speed : " << Setting("Viewer.Camera.Speed").AsFloat();
-        this->Fonts.Regular.DrawTextA(this->_proj, glm::mat4(1.0f), this->_size.x - 130.0f, this->_size.y - 5.0f, speed.str());
+        this->Fonts.Regular.DrawText(this->_proj, glm::mat4(1.0f), this->_size.x - 130.0f, this->_size.y - 5.0f, speed.str());
 
         if (Setting("Hud.ShowHelp").AsBool())
         {
@@ -136,13 +136,13 @@ void ViewerHud::Render()
                   "  i          - Toggle asset info on/off" << std::endl <<
                   "  <KP_PLUS>  - Increase camera speed" << std::endl <<
                   "  <KP_MINUS> - Decrease camera speed" << std::endl << this->_hud->AdditionalHelp();
-            this->Fonts.Info.DrawTextA(this->_proj, glm::mat4(1.0f), 10.0f, 20.0f, ss.str());
+            this->Fonts.Info.DrawText(this->_proj, glm::mat4(1.0f), 10.0f, 20.0f, ss.str());
 
         }
         this->_hud->Render(this->_proj, glm::mat4(1.0f));
     }
     else
     {
-        this->Fonts.Regular.DrawTextA(this->_proj, glm::mat4(1.0f), 5.0f, this->_size.y - 5.0f, (std::string("Nothing loaded")));
+        this->Fonts.Regular.DrawText(this->_proj, glm::mat4(1.0f), 5.0f, this->_size.y - 5.0f, (std::string("Nothing loaded")));
     }
 }

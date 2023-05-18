@@ -5,6 +5,8 @@
 #include <map>
 #include <string>
 
+using namespace valve;
+
 class FileData : public valve::Array<byte>
 {
 public:

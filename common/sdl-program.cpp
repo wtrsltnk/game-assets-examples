@@ -1,6 +1,5 @@
 
-#define GLEXTL_IMPLEMENTATION
-#include <GL/glextl.h>
+#include <glad/glad.h>
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
@@ -76,10 +75,7 @@ int Application::Run(int argc, char* argv[])
             {
                 cout << "Context created" << endl;
 
-                if (glExtLoadAll((PFNGLGETPROC*)&SDL_GL_GetProcAddress))
-                {
-                    cout << "Functions loaded" << endl;
-                }
+                gladLoadGL();
 
                 if (gApp->InitializeGraphics())
                 {

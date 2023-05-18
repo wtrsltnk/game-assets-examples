@@ -2,21 +2,19 @@ cmake_minimum_required(VERSION 2.6)
 
 project(hl.viewer)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+CPMAddPackage(
+    NAME SDL2
+    VERSION  2.0.22
+    URL https://github.com/libsdl-org/SDL/archive/refs/tags/release-2.0.22.zip
+    OPTIONS
+        "SDL_SHARED Off"
+)
 
-install_dep("https://bitbucket.org/wincppdeps/sdl2.git")
-install_dep("https://bitbucket.org/wincppdeps/glm.git")
-install_dep("https://bitbucket.org/wincppdeps/glextloader.git")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 find_package(OpenGL REQUIRED)
 
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR})
-
-find_package(GLM REQUIRED)
-include_directories(${GLM_INCLUDE_DIR})
-
-set(SRC_APP
+add_executable(hl.viewer
     ../common/camera.cpp
     ../common/font.cpp
     ../common/settings.cpp
@@ -24,13 +22,17 @@ set(SRC_APP
     ../common/sdl-program.cpp
     filesystem.cpp
     program.cpp
-	viewerhud.cpp
+    viewerhud.cpp
 )
 
-add_executable(hl.viewer ${SRC_APP})
+target_include_directories(hl.viewer
+    PUBLIC ../game-assets/include
+)
 
 target_link_libraries(hl.viewer
     game-assets
-    ${SDL2_LIBRARY} Ole32 Oleaut32 Imm32 Winmm Version
+    glm
+    SDL2-static
+    Ole32 Oleaut32 Imm32 Winmm Version
     ${OPENGL_LIBRARIES}
 )
