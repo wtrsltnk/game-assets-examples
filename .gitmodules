@@ -1,6 +1,3 @@
 [submodule "game-assets"]
 	path = game-assets
 	url = https://github.com/wtrsltnk/game-assets.git
-[submodule "gl.utilities"]
-	path = gl.utilities
-	url = https://github.com/wtrsltnk/gl.utilities.git
