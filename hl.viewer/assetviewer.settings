@@ -1,2 +1,4 @@
+Hud.ShowHelp=false
+Hud.ShowInfo=false
 Viewer.Camera.Speed=200
 Viewer.PauseAnimation=false
